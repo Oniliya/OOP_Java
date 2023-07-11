@@ -13,25 +13,35 @@ public class OrdinaryClient extends Actor {
         return super.name;
     }
 
+    // вернуть ссылку на себя
+    public Actor getActor() {
+      return this;
+    }
+
+    // узнать у клиента его положение
     public boolean isTakeOrder() {
       return super.isTakeOrder;
     }
 
+    // узнать у клиента его положение
     public boolean isMakeOrder() {
       return super.isMakeOrder;
     }
 
+    // установить клиенту его положение
     public void setTakeOrder(boolean makeOder) {
       super.isMakeOrder = makeOder;
     }
     
+    // установить клиенту его положение
     public void setMakeOrder(boolean pikUpOrder) {
       super.isTakeOrder = pikUpOrder;
     }
 
-    public Actor getActor() {
-      return this;
-    }
+
+
+    
+
 
     // public boolean isSetTakeOrder() {
     //     return setTakeOrder;

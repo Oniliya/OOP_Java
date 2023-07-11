@@ -1,43 +1,48 @@
 package Classes;
 
 public class SpecialClient extends Actor{
-    private int idVip;
-    public SpecialClient(String name, Integer id) {
-        super(name);
-        idVip = id;
-    }
-
-    @Override
-    public String getName() {
-        return super.name;
-    }
-
-    public boolean isTakeOrder() {
-      return super.isTakeOrder;
-    }
-
-    public boolean isMakeOrder() {
-      return super.isMakeOrder;
-    }
-
-    public void setTakeOrder(boolean makeOder) {
-      super.isMakeOrder = makeOder;
-    }
     
-    public void setMakeOrder(boolean pikUpOrder) {
-      super.isTakeOrder = pikUpOrder;
-    }
+  // дополнительный ид для вип клиента
+  private int idVip;
 
-    public Actor getActor() {
-      return this;
-    }
+  public SpecialClient(String name, Integer id) {
+    super(name);
+    idVip = id;
+  }
 
-    // @Override
-    // public String getName() {
-    //     return name;
-    // }
+  public Actor getActor() {
+    return this;
+  }
 
-    // public int getIdVip() {
-    //     return idVip;
-    // }
+  @Override
+  public String getName() {
+      return super.name;
+  }
+
+  public boolean isTakeOrder() {
+    return super.isTakeOrder;
+  }
+
+  public boolean isMakeOrder() {
+    return super.isMakeOrder;
+  }
+
+  public void setTakeOrder(boolean makeOder) {
+    super.isMakeOrder = makeOder;
+  }
+  
+  public void setMakeOrder(boolean pikUpOrder) {
+    super.isTakeOrder = pikUpOrder;
+  }
+
+
+
+  // @Override
+  // public String getName() {
+  //     return name;
+  // }
+
+  // public int getIdVip() {
+  //     return idVip;
+  // }
 }

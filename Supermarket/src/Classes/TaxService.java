@@ -1,7 +1,9 @@
 package Classes;
 
 import Interfaces.iActorBehaviuor;
-
+/**налоговый инспектор
+ * 
+ */
 public class TaxService implements iActorBehaviuor {
     private String name;
     private boolean isTakeOrder;
@@ -11,7 +13,7 @@ public class TaxService implements iActorBehaviuor {
         this.name = "Tax audit";
     }
 
-     public String getName() {        
+    public String getName() {        
         return name;
     }
 
