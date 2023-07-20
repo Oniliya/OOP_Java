@@ -3,65 +3,39 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import Controllers.EmploeeController;
+import Domen.AverageAge;
+import Domen.Emploee;
+import Domen.Person;
+import Domen.PersonComparator;
 import Domen.Student;
 import Domen.StudentGroup;
-import Domen.StudentSteam;
+import Domen.Teacher;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
-        Student s1 = new Student("Иван", 25, 121);
-        Student s2 = new Student("Игорь", 23, 301);
-        Student s3 = new Student("Иван", 22, 121);
-        Student s4 = new Student("Игорь",  23, 444);
-        Student s5 = new Student("Даша",  23, 171);
-        Student s6 = new Student("Лена",  23, 104);
+        // Student s1 = new Student("Иван", 25, 121);
+        // Student s2 = new Student("Игорь", 23, 301);
+        // Student s3 = new Student("Иван", 22, 121);
+        // Student s4 = new Student("Игорь",  23, 444);
+        // Student s5 = new Student("Даша",  23, 171);
+        // Student s6 = new Student("Лена",  23, 104);
 
-        Student s11 = new Student("Иван1", 22, 1211);
-        Student s21 = new Student("Игорь1", 13, 3011);
-        Student s31 = new Student("Иван1", 21, 1211);
-        Student s41 = new Student("Игорь1",  25, 4414);
-        Student s51 = new Student("Даша1",  27, 1711);
-        Student s61 = new Student("Лена1",  23, 1041);
-
-        Student s12 = new Student("Иван2", 25, 1212);
-        Student s22 = new Student("Игорь2", 23, 3021);
-        Student s32 = new Student("Иван2", 22, 1212);
-        Student s42 = new Student("Игорь2",  23, 4424);
-        Student s52 = new Student("Даша2",  23, 1712);
-        Student s62 = new Student("Лена2",  23, 1042);
-
-
-        List<Student> listStud = new ArrayList<Student>();
-        listStud.add(s1);
-        listStud.add(s2);
-        listStud.add(s3);
-        listStud.add(s4);
+        // List<Student> listStud = new ArrayList<Student>();
+        // listStud.add(s1);
+        // listStud.add(s2);
+        // listStud.add(s3);
+        // listStud.add(s4);
         // listStud.add(s5);
         // listStud.add(s6);
         
-        List<Student> listStud1 = new ArrayList<Student>();
-        listStud1.add(s11);
-        listStud1.add(s21);
-        listStud1.add(s31);
-        listStud1.add(s41);
-        listStud1.add(s51);
-        // listStud1.add(s61);
 
-        List<Student> listStud2 = new ArrayList<Student>();
-        listStud2.add(s12);
-        listStud2.add(s22);
-        // listStud2.add(s32);
-        // listStud2.add(s42);
-        // listStud2.add(s52);
-        // listStud2.add(s62);
-
-        StudentGroup group4580 = new StudentGroup(listStud, 4580);
-        StudentGroup group4581 = new StudentGroup(listStud1, 4581);
-        StudentGroup group4582 = new StudentGroup(listStud2, 4582);
+        // StudentGroup group4580 = new StudentGroup(listStud, 4580);
         // System.out.println(group4580);
 
-        // for(Student std : group4580){
+        // for(Student std : group4580)
+        // {
         //     System.out.println(std);
         // }
 
@@ -69,40 +43,114 @@ public class App {
 
         // Collections.sort(group4580.getGroup());
 
-        // for(Student std: group4580.getGroup()){
+        // for(Student std: group4580.getGroup())
+        // {
         //     System.out.println(std);
         // }
 
-        List<StudentGroup> myList0 = new ArrayList<StudentGroup>();
-        myList0.add(group4580);
-        myList0.add(group4581);
-        myList0.add(group4582);
-        StudentSteam stream0 = new StudentSteam(myList0, 0);
+        //========================================================================
+        // сравним двух студентов
+        Student s1 = new Student("Иван", 25, 121);
+        Student s2 = new Student("Игорь", 23, 301);
+        // создаем экземпляр класса персон_компаратор для студентов
+        PersonComparator<Student> comS = new PersonComparator<Student>();
+        comS.compare(s1, s2);
 
 
-        System.out.println("=========================================================");
+        //========================================================================
+        // сравним двух учителей
+        Teacher t1 = new Teacher("Иван", 25, "Docent");
+        Teacher t2 = new Teacher("Игорь", 23, "Professor");
+        // создаем экземпляр класса персон_компаратор для учителей
+        PersonComparator<Teacher> comT = new PersonComparator<Teacher>();
+        comT.compare(t1, t2);
+      
+        // сравнить учителя и студента нельзя, если типы данных разные
+        // comS.compare(s1, t2);
+
+        // сравнить учителя и студента можно, если тип одинаковый
+        // сравнить их как данные типа персон можно
+        // полиморфизм (общие части будут сравниваться)
+        PersonComparator<Person> comP = new PersonComparator<Person>();
+        comP.compare(s1, t2);
+
+
+
+        // создаем экземпляр работника
+        Emploee e1 = new Emploee("Федорович", 60, "разнорабочим");
+        // создаем экземпляр класса эмплое-контролер
+        EmploeeController empControll = new EmploeeController();
+        // выплатим ему зарплату
+        EmploeeController.paySalary(e1);
+
+        // если метод static то можно вызвать его сразу, без создания экземпляра класса
+        // без EmploeeController empControll = new EmploeeController();
+        // без empControll.paySalary(e1); 
+        // (если создан экземпляр класса, что !! обращение к нему (с маленькой буквы))
+        // из EmploeeController: -> public static <T extends Emploee> void paySalary(T person)
+        EmploeeController.paySalary(e1);
+        
+        // студент получил зарплату
+        // EmploeeController.paySalary(s1);
+        // необходимо исключить ошибку (защитить тип)
+        // empControll.paySalary(e1);
+        // empControll.paySalary(s1);
+
+        //-----------------------------------
+        //вывод учителей
+        Teacher t3 = new Teacher("Семен Иванович", 35, "Docent");
+        Teacher t4 = new Teacher("Игорь Сергеевич", 33, "Professor");
+        Teacher t5 = new Teacher("Антон Павлович", 41, "Candidate");
+        System.out.println(t3.toString()+"\n"+t4.toString()+"\n"+t5.toString()+"\n");
+        // слоздаем список учителей
+        List<Teacher> listTeach = new ArrayList<Teacher>();
+        listTeach.add(t3);
+        listTeach.add(t4);
+        listTeach.add(t5);
+        // сортируем список по полю firstName
+        Collections.sort(listTeach);
+        System.out.println(listTeach);
+
+        // среднее арифметическое возрастов учителей
+        System.out.println(AverageAge.average(listTeach));
+
+        // создадим список студентов
+        Student s11 = new Student("Иван", 22, 121);
+        Student s12 = new Student("Игорь", 21, 301);
+        Student s13 = new Student("Джон", 19, 121);
+        List<Student> listStud = new ArrayList<Student>();
+        listStud.add(s11);
+        listStud.add(s12);
+        listStud.add(s13);
+
+         // среднее арифметическое возрастов студентов
+        System.out.println(AverageAge.average(listStud));
        
-        for(StudentGroup stGr : stream0){
-            System.out.println(stGr);
-        }        
 
-        System.out.println("+++++++++++++++++ Отсортировано по количеству студентов в группах++++++++++++++++++++++++");
-        Collections.sort(stream0.getStudentGroup());
 
-        for(StudentGroup stGr : stream0){
-            System.out.println(stGr);
-        }
 
 
         
 
 
-
-
-
-
-
-        System.out.println("-- переопределен toString -----------------------------------------------------");
-        System.out.println(stream0);
     }
 }
+
+
+
+
+
+
+
+// 1) Создать класс TeacherService и реализовать аналогично проделанному на семинаре. 
+// Подключить обобщенный интерфейс iPersonService. 
+// Добавить метод вывода списка учителей отсортированного обобщенным классом PersonComparator
+
+// 2) Создать класс TeacherController. Подключить к классу обобщенный интерфейс iPersonController.
+
+// 3) Разработать обобщенный класс AverageAge для подсчета среднего возраста студентов, 
+// учителей и работников. Вывести результат работы класса на консоль.
+
+// (Задача со *) Переписать иерархию Person->Student/Teacher/Emploee в иерархию обобщенных типов.
+
+// Формат сдачи: ссылка на гитхаб проект

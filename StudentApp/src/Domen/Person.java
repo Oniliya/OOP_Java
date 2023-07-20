@@ -3,9 +3,8 @@ package Domen;
 public abstract class Person {
     private String name;
     private int age;
-    
     /**
-     * конструктор для Person
+     * общий класс персона
      * @param name имя
      * @param age возраст
      */
