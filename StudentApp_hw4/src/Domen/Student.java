@@ -4,12 +4,11 @@ package Domen;
 public class Student extends Person implements Comparable<Student> {
 
     private int id;
-
     /**
-     * конструктор класса студент (наследователь из Person)
-     * @param name имя из Person
-     * @param age возраст из Person
-     * @param id ид собственное поле
+     * класс студент от класса персона
+     * @param name имя (общее поле)
+     * @param age возраст (общее поле)
+     * @param id ид студента - свое поле
      */
     public Student(String name, int age, int id) {
         super(name, age);
@@ -51,13 +50,13 @@ public class Student extends Person implements Comparable<Student> {
     @Override
     public int compareTo(Student o) {
 
-        // System.out.println(super.getName()+" - "+o.getName());
+        System.out.println(super.getName()+" - "+o.getName());
         if(super.getAge()==o.getAge())
         {
-            // if(id==o.id)return 0 ;
-            // if(id>o.id)return 1;
-            // else return -1;
-            return 0;
+            if(id==o.id)return 0 ;
+            if(id>o.id)return 1;
+            else return -1;
+            //return 0;
         }
 
         if(super.getAge()>o.getAge())
