@@ -20,7 +20,7 @@ public class View {
             int imgArg = promptInt("Введите первое комплексное число: мнимая часть: ");
             Complex a = new Complex(realArg, imgArg);
             System.out.println(a.toString());
-            CalcComplex calculator = new CalcComplex(a);
+            calculator.plus(a);
             while (true) {
                 String cmd = prompt("Введите команду (+, -, *, /, stop) : ");    
                 if (cmd.equals("+")) {
@@ -29,8 +29,7 @@ public class View {
                     Complex b = new Complex(realArg2, imgArg2);
                     System.out.println(b.toString());
                     calculator.plus(b);
-                    calculator = new CalcComplex(calculator.plus(b));
-                    System.out.println("результат суммы чисел = " + calculator.toString());
+                    System.out.println("результат суммы чисел = " + calculator.getComplex());
                     continue;
                 }
                 if (cmd.equals("-")) {
@@ -38,9 +37,8 @@ public class View {
                     int imgArg2 = promptInt("Введите следующее комплексное число: мнимая часть: ");
                     Complex b = new Complex(realArg2, imgArg2);
                     System.out.println(b.toString());
-                    // calculator.minus(b);
-                    calculator = new CalcComplex(calculator.minus(b));
-                    System.out.println("результат разницы чисел = " + calculator.toString());
+                    calculator.minus(b);
+                    System.out.println("результат разницы чисел = " + calculator.getComplex());
                     continue;
                 }
                 if (cmd.equals("*")) {
@@ -48,9 +46,8 @@ public class View {
                     int imgArg2 = promptInt("Введите следующее комплексное число: мнимая часть: ");
                     Complex b = new Complex(realArg2, imgArg2);
                     System.out.println(b.toString());
-                    // calculator.multip(b);
-                    calculator = new CalcComplex(calculator.multip(b));
-                    System.out.println("результат произведения чисел = " + calculator.toString());
+                    calculator.multip(b);
+                    System.out.println("результат произведения чисел = " + calculator.getComplex());
                     continue;
                 }
                 if (cmd.equals("/")) {
@@ -58,9 +55,8 @@ public class View {
                     int imgArg2 = promptInt("Введите следующее комплексное число: мнимая часть: ");
                     Complex b = new Complex(realArg2, imgArg2);
                     System.out.println(b.toString());
-                    // calculator.division(b);
-                    calculator = new CalcComplex(calculator.division(b));
-                    System.out.println("результат деления чисел = " + calculator.toString());
+                    calculator.division(b);
+                    System.out.println("результат деления чисел = " + calculator.getComplex());
                     continue;
                 }
                 if (cmd.equals("stop")) {

@@ -1,5 +1,7 @@
 package Classes;
 
+import java.io.IOException;
+
 import Interfaces.iCalcComplex;
 
 public class CalcDecorator implements iCalcComplex{
@@ -12,34 +14,67 @@ public class CalcDecorator implements iCalcComplex{
      * @param logger логгер
      */
     public CalcDecorator(iCalcComplex oldCalc, Logger logger) {
+    // public CalcDecorator(iCalcComplex oldCalc) {
         this.oldCalc = oldCalc;
         this.logger = logger;
     }
+
     @Override
-    public Complex plus(Complex b) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'plus'");
-    }
-    @Override
-    public Complex minus(Complex b) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'minus'");
-    }
-    @Override
-    public Complex multip(Complex b) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'multip'");
-    }
-    @Override
-    public Complex division(Complex b) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'division'");
-    }
-    @Override
-    public Complex reverse(Complex a) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'reverse'");
+    public iCalcComplex plus(Complex b) {
+        Complex a = oldCalc.getComplex();
+        
+        logger.log("( " + a.toString() + " ) + ( " + b.toString() + " ) = ");
+        iCalcComplex result = oldCalc.plus(b);
+        logger.log(" = " + result.toString() + "\n");
+        
+        return result;
     }
 
+    @Override
+    public iCalcComplex minus(Complex b) {
+        Complex a = oldCalc.getComplex();
+        
+        logger.log("( " + a.toString() + " ) - ( " + b.toString() + " ) = ");
+        iCalcComplex result = oldCalc.minus(b);
+        logger.log(" = " + result.toString() + "\n");
+        
+        return result;
+    }
+
+    @Override
+    public iCalcComplex multip(Complex b) {
+        Complex a = oldCalc.getComplex();
+        
+        logger.log("( " + a.toString() + " ) * ( " + b.toString() + " ) = ");
+        iCalcComplex result = oldCalc.multip(b);
+        logger.log(" = " + result.toString() + "\n");
+        
+        return result;
+    }
+
+    @Override
+    public iCalcComplex division(Complex b) {
+        Complex a = oldCalc.getComplex();
+        
+        logger.log("( " + a.toString() + " ) / ( " + b.toString() + " ) = ");
+        iCalcComplex result = oldCalc.division(b);
+        logger.log(" = " + result.toString() + "\n");
+        
+        return result;
+    }
+
+    @Override
+    public Complex reverse(Complex a) {
+        double scale = a.getRe() * a.getRe() + a.getIm() * a.getIm();
+        return new Complex(a.getRe()/scale, -a.getIm()/scale);
+    }
+
+    @Override
+    public Complex getComplex() {
+        Complex result = oldCalc.getComplex();
+        return result;
+    }
+
+    
     
 }

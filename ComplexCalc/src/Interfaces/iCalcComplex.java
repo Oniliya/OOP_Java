@@ -4,17 +4,20 @@ import Classes.Complex;
 public interface iCalcComplex {
 
     // сумма двух комплексных чисел
-    public Complex plus(Complex b);
+    public iCalcComplex plus(Complex b);
 
     // разность двух комплексных чисел
-    public Complex minus(Complex b);
+    public iCalcComplex minus(Complex b);
 
     // произведение двух комплексных чисел
-    public Complex multip(Complex b);
+    public iCalcComplex multip(Complex b);
     
     // деление двух комплексных чисел
-    public Complex division(Complex b);
+    public iCalcComplex division(Complex b);
 
     // обратное комплексное число (для деления)
     public Complex reverse(Complex a);
+
+    // получение значения кмплексного числа, находящегося в калькуляторе
+    public Complex getComplex();
 }
