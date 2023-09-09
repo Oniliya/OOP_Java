@@ -1,5 +1,6 @@
 package Domen;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -10,6 +11,7 @@ public class StudentSteam implements Iterable<StudentGroup> {
      */
     private List<StudentGroup> StudentGroup;
     private Integer idSteam;
+    public HashMap<Integer, Integer> h1 = new HashMap<Integer, Integer>();
     /**
      * 
      * @param studentGroup список учебных групп

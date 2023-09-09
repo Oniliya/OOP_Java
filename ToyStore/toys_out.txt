@@ -1,0 +1,45 @@
+Общий список игрушек в магазине -> [Toy [id=0, name=lego, count=50, frequency=30] 
+, Toy [id=1, name=bear, count=50, frequency=30] 
+, Toy [id=2, name=ball, count=50, frequency=40] 
+, Toy [id=3, name=doll, count=50, frequency=25] 
+, Toy [id=4, name=cube, count=50, frequency=25] 
+]
+Состоялся розыгрыш игрушек. Результат розыгрыша -> 
+ball  
+ball  
+lego  
+lego  
+lego  
+Оставшиеся в магазине игрушки -> [Toy [id=0, name=lego, count=47, frequency=30] 
+, Toy [id=1, name=bear, count=50, frequency=30] 
+, Toy [id=2, name=ball, count=48, frequency=40] 
+, Toy [id=3, name=doll, count=50, frequency=25] 
+, Toy [id=4, name=cube, count=50, frequency=25] 
+]
+Вы взяли выигрышную игрушку ball
+Вы взяли выигрышную игрушку ball
+Вы взяли выигрышную игрушку lego
+Вы взяли выигрышную игрушку lego
+Вы взяли выигрышную игрушку lego
+выигрышный список игрушек пуст, организуйте выигрыш 
+выигрышный список игрушек пуст, организуйте выигрыш 
+Общий список игрушек в магазине -> [Toy [id=0, name=lego, count=47, frequency=30] 
+, Toy [id=1, name=bear, count=50, frequency=30] 
+, Toy [id=2, name=ball, count=48, frequency=40] 
+, Toy [id=3, name=doll, count=50, frequency=25] 
+, Toy [id=4, name=cube, count=50, frequency=25] 
+]
+Состоялся розыгрыш игрушек. Результат розыгрыша -> 
+doll  
+bear  
+lego  
+Оставшиеся в магазине игрушки -> [Toy [id=0, name=lego, count=46, frequency=30] 
+, Toy [id=1, name=bear, count=49, frequency=30] 
+, Toy [id=2, name=ball, count=48, frequency=40] 
+, Toy [id=3, name=doll, count=49, frequency=25] 
+, Toy [id=4, name=cube, count=50, frequency=25] 
+]
+Вы взяли выигрышную игрушку doll
+Вы взяли выигрышную игрушку bear
+Вы взяли выигрышную игрушку lego
+выигрышный список игрушек пуст, организуйте выигрыш 
